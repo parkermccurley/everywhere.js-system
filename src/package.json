@@ -9,13 +9,13 @@
   },
   "author": "parker mccurley",
   "license": "MIT",
-  "scripts": {
-    "start": "node ."
-  },
   "devDependencies": {
     "babel-preset-latest": "^6.16.0",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2"
+  },
+  "scripts": {
+    "start": "node ."
   }
 }
