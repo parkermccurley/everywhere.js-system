@@ -1,0 +1,12 @@
+{
+  "name": "everywhere.js-system",
+  "version": "1.0.0",
+  "description": "Replace me with a description of your JavaScript utility.",
+  "main": "index.js",
+  "repository": {
+    "url": "https://github.com/parkertm/everywhere.js-system",
+    "type": "git"
+  },
+  "author": "parker mccurley",
+  "license": "MIT"
+}
