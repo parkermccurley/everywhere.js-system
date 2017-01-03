@@ -1,7 +1,7 @@
 import gulp from 'gulp';
 import del from 'del';
-import babel from 'gulp-babel';
 import eslint from 'gulp-eslint';
+import babel from 'gulp-babel';
 import { exec } from 'child_process';
 
 const paths = {
@@ -28,7 +28,7 @@ gulp.task('build', ['clean', 'lint'], () =>
 );
 
 gulp.task('main', ['build'], (callback) => {
-  exec(`node ${paths.libDir}`, (error, stdout) => {
+  exec(`node ${ paths.libDir }`, (error, stdout) => {
     console.log(stdout);
     return callback(error);
   });
