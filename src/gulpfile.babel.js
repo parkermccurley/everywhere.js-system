@@ -1,7 +1,7 @@
 import gulp from 'gulp';
 import del from 'del';
 import babel from 'gulp-babel';
-// import eslint from 'gulp-eslint';
+import eslint from 'gulp-eslint';
 import { exec } from 'child_process';
 
 const paths = {
@@ -14,14 +14,14 @@ gulp.task('clean', () =>
   del(paths.libDir)
 );
 
-// gulp.task('lint', () => {
-//  gulp.src([paths.gulpFile, paths.app])
-//    .pipe(eslint())
-//    .pipe(eslint.format())
-//    .pipe(eslint.failAfterError())
-// });
+gulp.task('lint', () => {
+  gulp.src([paths.gulpFile, paths.app])
+   .pipe(eslint())
+   .pipe(eslint.format())
+   .pipe(eslint.failAfterError())
+});
 
-gulp.task('build', ['clean'], () =>
+gulp.task('build', ['clean', 'lint'], () =>
   gulp.src(paths.app)
     .pipe(babel())
     .pipe(gulp.dest(paths.libDir))
