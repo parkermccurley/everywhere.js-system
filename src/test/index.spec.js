@@ -1,11 +1,14 @@
 import index from '../app/index';
-import chai from 'chai';
+import { should } from 'chai';
+import { describe, it } from 'mocha';
+
+should();
 
 describe('index.js', () => {
   it('should pass a dummy test', () => {
-    expect(true).to.be.equal(true);
+    true.should.equal(true);
   });
   it('should return the string "Hello, world!"', () => {
-    expect(index()).to.be.equal("Hello, world!");
+    index().should.equal("Hello, world!");
   });
 });
