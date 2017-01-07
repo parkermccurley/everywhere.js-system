@@ -1,1 +1,3 @@
-console.log("Hello, World!");
+export default function index() {
+  return "Hello, world!";
+}
