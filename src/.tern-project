@@ -1,0 +1,17 @@
+{
+  "ecmaVersion": 6,
+  "libs": [
+    "browser",
+    "chai"
+  ],
+  "loadEagerly": [
+    "app/**/*.js",
+    "test/**/*.js"
+  ],
+  "plugins": {
+    "complete_strings": {
+      "maxLength": 15
+    },
+    "node": {}
+  }
+}
