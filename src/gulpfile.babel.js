@@ -9,12 +9,12 @@ const paths = {
   gulpFile: './gulpfile.babel.js',
   app: './app/**/*.js',
   test: './test/**/*.spec.js',
-  libDir: './lib/',
-  libTests: './lib/**/*.spec.js'
+  build: './lib/',
+  buildTests: './lib/**/*.spec.js'
 };
 
 gulp.task('clean', () =>
-  del(paths.libDir)
+  del(paths.build)
 );
 
 gulp.task('lint', () => {
@@ -27,23 +27,23 @@ gulp.task('lint', () => {
 gulp.task('build', ['clean', 'lint'], () =>
   gulp.src([paths.app, paths.test])
     .pipe(babel())
-    .pipe(gulp.dest(paths.libDir))
+    .pipe(gulp.dest(paths.build))
 );
 
 gulp.task('test', ['build'], () =>
-  gulp.src(paths.libTests)
-    .pipe(mocha())
+  gulp.src(paths.buildTests)
+    .pipe(mocha({reporter: 'progress'}))
 );
 
 gulp.task('main', ['test'], (callback) => {
-  exec(`node ${ paths.libDir }`, (error, stdout) => {
+  exec(`node ${ paths.build }`, (error, stdout) => {
     console.log(stdout);
     return callback(error);
   });
 });
 
 gulp.task('watch', () => {
-  gulp.watch(paths.app, ['main']);
+  gulp.watch([paths.app, paths.test], ['main']);
 });
 
 gulp.task('default', ['watch', 'main']);
